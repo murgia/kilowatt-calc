@@ -12,7 +12,6 @@
   ]);
 
   function RouterFunction($stateProvider){
-    console.log("RouterFunction is being called")
     $stateProvider
     .state("applianceIndex", {
       url: "/appliances",

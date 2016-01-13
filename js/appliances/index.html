@@ -1,7 +1,14 @@
-<h3 class="state-heading">Please Enter your State's Abbreviation</h3>
-<input class="state-input" type="text" value="VA">
-<button ng-click="getElectPriceController" class="state-submit">Enter</button>
-<h5 class="retail-statement">The average cost of electricity is:<div ng-controller="getElecPriceController" class="elec-price">{{$scope.price}}</div></h5>
+
+<h3 class="name-heading">Step 1: Please Enter the Name of Your Electrical Calculation</h3>
+<input class="name-input" type="text" placeholder="Murgia Manor">
+<h3 class="state-heading">Step 2: Please Enter your State's Abbreviation</h3>
+<input class="state-input" type="text" placeholder="VA">
+<button ng-click="ApplianceIndexViewModel.getStateElecPrice()" class="state-submit">Enter</button>
+<h5 class="retail-statement">The average cost of electricity is:<div class="elec-price"></div></h5>
+<h3 class="create-electcalc-heading">Step 3: Click the button to create your Electrical Calculation!</h3>
+<button class="create-electcalc">Electrical Calculation Generator</button>
+
+<div data-electcalcID={{electcalcs.last}} hidden class="electcalc-id"> {{electcalcs.last.id}}</div>
 
 <table style="width:60%">
   <tr>
