@@ -1,6 +1,6 @@
 <h3 class="state-heading">Please Enter your State's Abbreviation</h3>
 <input class="state-input" type="text" value="VA">
-<button ng-click="ApplianceIndexViewModel.getStateElecPrice()" class="state-submit">Enter</button>
+<button ng-click="getElectPriceController" class="state-submit">Enter</button>
 <h5 class="retail-statement">The average cost of electricity is:<div ng-controller="getElecPriceController" class="elec-price">{{$scope.price}}</div></h5>
 
 <table style="width:60%">
