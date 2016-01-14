@@ -3,7 +3,7 @@
 (function(){
   angular
   .module("electcalcs")
-  .controller("ElectcalcsIndexController", [
+  .controller("ElectcalcIndexController", [
     "ElectcalcFactory",
     ElectcalcIndexControllerFunction
   ]);

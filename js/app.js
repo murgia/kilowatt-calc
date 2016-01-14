@@ -22,7 +22,7 @@
     })
     .state("electcalcIndex", {
       url: "/electcalcs",
-      templateUrl: "js.electcalcs/index.html",
+      templateUrl: "js/electcalcs/index.html",
       controller: "ElectcalcIndexController",
       controllerAs: "ElectcalcIndexViewModel"
     });

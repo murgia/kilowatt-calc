@@ -1,7 +1,11 @@
 <h1>Here is a list of all of the Electrical Calculations</h1>
 
 <div data-ng-repeat="electcalc in ElectcalcIndexViewModel.electcalcs">
-  <p data-electcalcID={{electcalc.id}} id="electcalc{{electcalc.id}}">{{electcalc.name}}</p>
-  <p>{{electcalc.state}}</p>
-  <p>{{electcalc.avg_cost}}</p>
+  <h3 data-electcalcID={{electcalc.id}} id="electcalc{{electcalc.id}}">{{electcalc.name}}</h3>
+  <ul>
+    <li>{{electcalc.state}}</li>
+    <li>{{electcalc.avg_cost}}</li>
+    <li>{{electcalc.total_energy}}</li>
+    <li>{{electcalc.total_cost}}</li>
+  </ul>
 </div>
