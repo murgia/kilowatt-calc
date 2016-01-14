@@ -1,0 +1,52 @@
+html{
+  background-image: url("http://www.gobeyondthegrid.com/wp-content/gallery/alternative-energy-and-lighting/beyond-the-grid-landscaping-sustainable-landscaping-solar-wind-energy-ii.jpg");
+  background-size: cover;
+}
+body{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50em;
+  background-color: white;
+  opacity: 0.9;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header{
+  background: green;
+  /*color: white;*/
+  height: auto;
+  margin-top: -28px;
+  width: auto;
+  padding-top: 0.1px;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #ccc;
+  font-size: 30px;
+}
+
+table{
+  margin-left: auto;
+  margin-right:auto;
+  border: 2px groove lemonchiffon;
+
+}
+
+th{
+  border: 2px groove lemonchiffon;
+  font-size: 1.2em;
+  background-color: green;
+  color: white;
+}
+
+td{
+  border: 2px groove lemonchiffon;
+}
+
+input{
+  text-align: center;
+}
+
+.elec-price{
+  font-size: 30px;
+  color: green;
+}
