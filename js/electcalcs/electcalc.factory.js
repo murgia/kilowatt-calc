@@ -2,7 +2,7 @@
 
 (function(){
   angular
-  .module("appliances")
+  .module("electcalcs")
   .factory("ElectcalcFactory", [
     "$resource",
     ElectcalcFactoryFunction

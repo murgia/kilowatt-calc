@@ -5,28 +5,25 @@
   .module("appliances")
   .controller("ApplianceIndexController", [
     "ApplianceFactory",
-    "ElectcalcFactory",
     ApplianceIndexControllerFunction
   ]);
 
   function ApplianceIndexControllerFunction(ApplianceFactory, ElectcalcFactory){
     this.appliances = ApplianceFactory.query();
-    this.electcalcs = ElectcalcFactory.query();
 
 // ajax post request to create electcalc
     this.createElectcalc = function(){
-      console.log("click test");
       var elect_data = {name: $(".name-input").val(), state: $(".state-input").val(), avg_cost: $(".elec-price").text() };
       console.log(elect_data);
       $.ajax({
         method: "post",
         url: "http://localhost:3000/electcalcs",
-        data: elect_data,
+        data: {elect_data: elect_data},
         dataType: "json"
       }).then(function(res){
-        console.log(res);
-      }).fail(function(res){
-        console.log(elect_data);
+
+        // Insert recent Electcalc ID into DOM to be access by create estimates
+        $(".electcalc-id").text(res.id);
       });
     };
 
@@ -43,17 +40,18 @@
       }
 
 // ajax post request to to create estimates in API
+      var electcalc_id = $(".electcalc-id").text();
+      var url = "http://localhost:3000/electcalcs/" + electcalc_id;
       $.ajax({
         method:"post",
-        url: "http://localhost:3000/electcalcs/1" ,
+        url: url,
         data: {estimates: estimates},
         dataType: "json"
       }).then(function(res){
         console.log(res);
-      }).fail(function(res){
-        console.log(estimates)
       });
     };
+
 // ajax request to EIA to get average price of electricity
     this.getStateElecPrice = function(){
       var state = $(".state-input").val();

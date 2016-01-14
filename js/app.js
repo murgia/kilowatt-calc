@@ -4,7 +4,8 @@
   angular
   .module("kilowattcalc", [
     "ui.router",
-    "appliances"
+    "appliances",
+    "electcalcs"
   ])
   .config([
     "$stateProvider",
@@ -18,6 +19,12 @@
       templateUrl: "js/appliances/index.html",
       controller: "ApplianceIndexController",
       controllerAs: "ApplianceIndexViewModel"
+    })
+    .state("electcalcIndex", {
+      url: "/electcalcs",
+      templateUrl: "js.electcalcs/index.html",
+      controller: "ElectcalcIndexController",
+      controllerAs: "ElectcalcIndexViewModel"
     });
   }
 
