@@ -106,3 +106,33 @@ button:active {
   margin-bottom: 60px;
   padding-bottom: 50px;
 }
+
+.elec-calc-list{
+  list-style-type: none;
+  text-align: left;
+}
+.elect-calc{
+  border: 4px groove lemonchiffon;
+  display:inline-block;
+  text-align: center;
+  width: 300px;
+  height: auto;
+  margin: 10px;
+  background-color: green;
+  opacity: 0.9;
+  padding: 3px;
+  color: white;
+}
+.cost{
+  color:red;
+  font-weight: 900;
+  font-size: 20px;
+}
+.elec-calc-heading{
+  color: white;
+  background-color: green;
+}
+h3{
+  color: white;
+  background-color: green;
+}

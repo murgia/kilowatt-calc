@@ -1,11 +1,12 @@
-<h1>Here is a list of all of the Electrical Calculations</h1>
+<h1 class="elec-calc-heading">Electrical Calculations</h1>
 
-<div data-ng-repeat="electcalc in ElectcalcIndexViewModel.electcalcs">
+<!-- create div for each electrical calculation -->
+<div class="elect-calc" data-ng-repeat="electcalc in ElectcalcIndexViewModel.electcalcs">
   <h3 data-electcalcID={{electcalc.id}} id="electcalc{{electcalc.id}}">{{electcalc.name}}</h3>
-  <ul>
-    <li>{{electcalc.state}}</li>
-    <li>{{electcalc.avg_cost}}</li>
-    <li>{{electcalc.total_energy}}</li>
-    <li>{{electcalc.total_cost}}</li>
+  <ul class="elec-calc-list">
+    <li>State: {{electcalc.state}}</li>
+    <li>Cost/kwh: {{electcalc.avg_cost}} cents/kwh</li>
+    <li>Energy: {{electcalc.total_energy}} kwh</li>
+    <li class="cost"> Total Yearly Cost: ${{electcalc.total_cost}}</li>
   </ul>
 </div>

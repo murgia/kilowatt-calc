@@ -22,16 +22,15 @@
         dataType: "json"
       }).then(function(res){
 
-        // Insert recent Electcalc ID into DOM to be access by create estimates
+        // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
         $(".electcalc-id").text(res.id);
+        $(".create-electcalc-heading").append("<p>Your Electrical Profile has been created! Please proceed to the calculator.</p>");
       });
     };
 
-// loop through appliances and create array of appliances and quantity
+// loop through appliances and create array of estimates (appliance + quantity)
     this.createEstimates = function(){
-      console.log("create all estimates");
       var estimates = [];
-
       for(var i = 1; i <= this.appliances.length; i++){
         if($("#quantity" + i).val() > 0){
           estimates.push({appliance_id: i, quantity: $("#quantity" + i).val()
@@ -39,7 +38,7 @@
         }
       }
 
-// ajax post request to to create estimates in API
+// ajax post request to post estimates in API
       var electcalc_id = $(".electcalc-id").text();
       var url = "http://localhost:3000/electcalcs/" + electcalc_id;
       $.ajax({
@@ -47,8 +46,8 @@
         url: url,
         data: {estimates: estimates},
         dataType: "json"
-      }).then(function(res){
-        console.log(res);
+      }).then(function(){
+        $(".create-estimate-alert").append("<p>Your electrical calculation is ready to be viewed. Please proceed to the next page!</p>");
       });
     };
 

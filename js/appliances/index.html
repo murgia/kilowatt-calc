@@ -1,16 +1,21 @@
-
+<!-- Step 1 Enter a name for electrical calculation -->
 <h3 class="name-heading">Step 1: Please Enter the Name of Your Electrical Calculation</h3>
 <input class="name-input" type="text" placeholder="Murgia Manor">
+
+<!-- Step 2 Enter the abbreviation for state and get back electricity price -->
 <h3 class="state-heading">Step 2: Please Enter your State's Abbreviation for Average Electricity Price</h3>
 <input class="state-input" type="text" placeholder="VA">
 <div>
   <button ng-click="ApplianceIndexViewModel.getStateElecPrice()" class="state-submit">Enter</button>
 </div>
 <h5 class="retail-statement">The average cost of electricity for your in cents/kwh is:<div class="elec-price"></div></h5>
+
+<!-- Step 3 create electrical calculation -->
 <h3 class="create-electcalc-heading">Step 3: Click the button to create your Electrical Calculation!</h3>
 <button ng-click="ApplianceIndexViewModel.createElectcalc()" class="create-electcalc">Electrical Calculation Generator</button>
 <div hidden class="electcalc-id"></div>
 
+<!-- kilowatt calculator -->
 <table>
   <tr>
     <th class="table-heading">Appliance</th>
@@ -25,9 +30,14 @@
   </tr>
 
 </table>
+
+<!-- Step 4 create estimate -->
 <div class="create-estimate-div">
   <button ng-click="ApplianceIndexViewModel.createEstimates()">1. Create Estimate</button>
 </div>
+<div class="create-estimate-alert"></div>
+
+<!-- Step 5 go to electrical calculations page -->
 <div class="create-electcalc-div">
   <button><a href="/#/electcalcs">2. Click Here to See Your Electrical Calculation</a></button>
 </div>
