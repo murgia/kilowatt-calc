@@ -9,7 +9,7 @@
   ]);
 
   function ElectcalcFactoryFunction($resource){
-    return $resource("http://localhost:3000/electcalcs", {}, {
+    return $resource("http://kilowatt-calc.herokuapp.com/electcalcs", {}, {
       update: {method: "PUT"}
     });
   }

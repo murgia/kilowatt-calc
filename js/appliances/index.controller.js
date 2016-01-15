@@ -17,7 +17,7 @@
       console.log(elect_data);
       $.ajax({
         method: "post",
-        url: "http://localhost:3000/electcalcs",
+        url: "http://kilowatt-calc.herokuapp.com/electcalcs",
         data: {elect_data: elect_data},
         dataType: "json"
       }).then(function(res){
@@ -40,7 +40,7 @@
 
 // ajax post request to post estimates in API
       var electcalc_id = $(".electcalc-id").text();
-      var url = "http://localhost:3000/electcalcs/" + electcalc_id;
+      var url = "http://kilowatt-calc.herokuapp.com/electcalcs/" + electcalc_id;
       $.ajax({
         method:"post",
         url: url,

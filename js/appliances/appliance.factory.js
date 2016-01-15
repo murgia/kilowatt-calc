@@ -9,7 +9,7 @@
   ]);
 
   function ApplianceFactoryFunction($resource){
-    return $resource("http://localhost:3000/appliances", {}, {
+    return $resource("https://kilowatt-calc.herokuapp.com/appliances", {}, {
       update: {method: "PUT"}
     });
   }
