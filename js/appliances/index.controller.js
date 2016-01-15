@@ -56,7 +56,7 @@
       var state = $(".state-input").val();
       $.get("http://api.eia.gov/series/?api_key=48A9046E879936B4E85D0D8E88AD81BE&series_id=ELEC.PRICE." + state + "-RES.A").then(function(res){
         console.log(res.series[0].data[0][1]);
-        var price_in_dollars = (res.series[0].data[0][1]/100);
+        var price_in_dollars = (res.series[0].data[0][1]/100).toFixed(2);
         $(".elec-price").text(price_in_dollars);
       });
     };
