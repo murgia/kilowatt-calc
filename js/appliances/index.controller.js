@@ -52,8 +52,10 @@
         get_estimates();
         return res;
       }).then(function(res){
-      //ajax post request to create estimates 
+      //ajax post request to create estimates
         create_estimates(res.id);
+      }).then(function(){
+        window.location.href = "http://murgia.github.io/kilowatt-calc/#/electcalcs";
       });
     };
 
