@@ -70,8 +70,10 @@
         // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
         $(".electcalc-id").text(res.id);
         console.log(res.id);
+        return res;
       }).then(function(res){
         get_estimates();
+        return res;
       }).then(function(res){
         create_estimates(res.id);
       });
