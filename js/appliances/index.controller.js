@@ -48,16 +48,11 @@
         url: "http://kilowatt-calc.herokuapp.com/electcalcs",
         data: {elect_data: elect_data},
         dataType: "json"
-      })
-      // .then(function(res){
-      //   // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
-      //   $(".electcalc-id").text(res.id);
-      //   return res;
-      // })
-      .then(function(res){
+      }).then(function(res){
         get_estimates();
         return res;
       }).then(function(res){
+      //ajax post request to create estimates 
         create_estimates(res.id);
       });
     };
