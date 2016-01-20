@@ -67,7 +67,9 @@
       }).then(function(res){
         // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
         $(".electcalc-id").text(res.id);
-      }).then(create_estimates());
+      }).then(function(){
+        create_estimates();
+      });
 
     };
 
