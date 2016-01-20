@@ -38,7 +38,7 @@
             });
           }
         }
-      };
+      }.bind(this);
 
       // get the id of the created electrical calculation
       var electcalc_id = $(".electcalc-id").text();
