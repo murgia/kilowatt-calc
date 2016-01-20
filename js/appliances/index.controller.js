@@ -31,12 +31,14 @@
     this.createEstimates = function(){
       // loop through appliances to create estimates associated with correct quantity
       var estimates = [];
-      for(var i = 1; i <= this.appliances.length; i++){
-        if($("#quantity" + i).val() > 0){
-          estimates.push({appliance_id: i, quantity: $("#quantity" + i).val()
-          });
+      var get_estimates = function(){
+        for(var i = 1; i <= this.appliances.length; i++){
+          if($("#quantity" + i).val() > 0){
+            estimates.push({appliance_id: i, quantity: $("#quantity" + i).val()
+            });
+          }
         }
-      }
+      };
 
       // get the id of the created electrical calculation
       var electcalc_id = $(".electcalc-id").text();
@@ -45,13 +47,13 @@
       var elect_data = {name: $(".name-input").val(), state: $(".state-input").val(), avg_cost: $(".elec-price").text() };
 
       // electcalc post url
-      var url = "http://kilowatt-calc.herokuapp.com/electcalcs/" + electcalc_id;
+      // var url = "http://kilowatt-calc.herokuapp.com/electcalcs/" + electcalc_id;
 
       // ajax post request to post estimates in API
-      var create_estimates = function(){
+      var create_estimates = function(id){
                                 $.ajax({
                                 method:"post",
-                                url: url,
+                                url: "http://kilowatt-calc.herokuapp.com/electcalcs/" + id,
                                 data: {estimates: estimates},
                                 dataType: "json"
                               }).then(function(){
@@ -64,20 +66,21 @@
         url: "http://kilowatt-calc.herokuapp.com/electcalcs",
         data: {elect_data: elect_data},
         dataType: "json"
-      }).done(function(res){
+      }).then(function(res){
         // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
         $(".electcalc-id").text(res.id);
-      }).done(function(){
-        create_estimates();
+        console.log(res.id);
+      }).then(function(res){
+        get_estimates();
+      }).then(function(res){
+        create_estimates(res.id);
       });
-
     };
 
 // ajax request to EIA to get average price of electricity
     this.getStateElecPrice = function(){
       var state = $(".state-input").val();
       $.get("http://api.eia.gov/series/?api_key=48A9046E879936B4E85D0D8E88AD81BE&series_id=ELEC.PRICE." + state + "-RES.A").then(function(res){
-        console.log(res.series[0].data[0][1]);
         var price_in_dollars = (res.series[0].data[0][1]/100).toFixed(2);
         $(".elec-price").text(price_in_dollars);
       });
