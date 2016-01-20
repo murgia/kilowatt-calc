@@ -11,24 +11,8 @@
   function ApplianceIndexControllerFunction(ApplianceFactory, ElectcalcFactory){
     this.appliances = ApplianceFactory.query();
 
-// ajax post request to create electcalc
-    // this.createElectcalc = function(){
-    //   var elect_data = {name: $(".name-input").val(), state: $(".state-input").val(), avg_cost: $(".elec-price").text() };
-    //   $.ajax({
-    //     method: "post",
-    //     url: "http://kilowatt-calc.herokuapp.com/electcalcs",
-    //     data: {elect_data: elect_data},
-    //     dataType: "json"
-    //   }).then(function(res){
-    //
-    //     // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
-    //     $(".electcalc-id").text(res.id);
-    //     $(".create-electcalc-heading").append("<p>Your Electrical Profile has been created! Please proceed to the calculator.</p>");
-    //   });
-    // };
-
 // loop through appliances and create array of estimates (appliance + quantity)
-    this.createEstimates = function(){
+    this.createElectricalCalculation = function(){
       // loop through appliances to create estimates associated with correct quantity
       var estimates = [];
       var get_estimates = function(){
@@ -41,13 +25,11 @@
       }.bind(this);
 
       // get the id of the created electrical calculation
-      var electcalc_id = $(".electcalc-id").text();
+      // var electcalc_id = $(".electcalc-id").text();
 
       // get electrical data information
       var elect_data = {name: $(".name-input").val(), state: $(".state-input").val(), avg_cost: $(".elec-price").text() };
 
-      // electcalc post url
-      // var url = "http://kilowatt-calc.herokuapp.com/electcalcs/" + electcalc_id;
 
       // ajax post request to post estimates in API
       var create_estimates = function(id){
@@ -66,12 +48,13 @@
         url: "http://kilowatt-calc.herokuapp.com/electcalcs",
         data: {elect_data: elect_data},
         dataType: "json"
-      }).then(function(res){
-        // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
-        $(".electcalc-id").text(res.id);
-        console.log(res.id);
-        return res;
-      }).then(function(res){
+      })
+      // .then(function(res){
+      //   // Insert recent Electcalc ID into DOM so it can be accessed by create estimates function
+      //   $(".electcalc-id").text(res.id);
+      //   return res;
+      // })
+      .then(function(res){
         get_estimates();
         return res;
       }).then(function(res){

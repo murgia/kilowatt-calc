@@ -12,10 +12,7 @@
 </div>
 <h5 class="retail-statement">The average cost of electricity for your in $/kwh is:<div class="elec-price"></div></h5>
 
-<!-- Step 3 create electrical calculation -->
-<h3 class="create-electcalc-heading">Step 3: Click the button to create your Electrical Calculation!</h3>
-<button ng-click="ApplianceIndexViewModel.createElectcalc()" class="create-electcalc">Electrical Calculation Generator</button>
-<div hidden class="electcalc-id"></div>
+<!-- <div hidden class="electcalc-id"></div> -->
 
 <!-- kilowatt calculator -->
 <table>
@@ -35,7 +32,7 @@
 
 <!-- Step 4 create estimate -->
 <div class="create-estimate-div">
-  <button ng-click="ApplianceIndexViewModel.createEstimates()">1. Create Estimate</button>
+  <button ng-click="ApplianceIndexViewModel.createElectricalCalculation()">1. Create Estimate</button>
 </div>
 <div class="create-estimate-alert"></div>
 
